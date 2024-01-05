@@ -49,6 +49,6 @@ return require('packer').startup(function(use)
 	  run = 'npm install --frozen-lock',
   }
   -- Plugins here.
-  use 'lervag/vimtex'
-
+  use('lervag/vimtex')
+  use('ggandor/leap.nvim')
 end)
