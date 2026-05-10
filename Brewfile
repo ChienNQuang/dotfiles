@@ -1,5 +1,8 @@
+# Taps
 tap "k06a/tap"
 tap "xpipe-io/tap"
+
+# CLI
 brew "fzf"
 brew "gh"
 brew "git"
@@ -9,6 +12,8 @@ brew "mise"
 brew "ripgrep"
 brew "stow"
 brew "k06a/tap/macpow"
+
+# GUI apps
 cask "ghostty"
 cask "orbstack"
 cask "raycast"
@@ -16,6 +21,8 @@ cask "rectangle"
 cask "visual-studio-code"
 cask "xpipe-io/tap/xpipe"
 cask "zed"
+
+# VS Code extensions
 vscode "antfu.vite"
 vscode "be5invis.vscode-icontheme-nomo-dark"
 vscode "bradlc.vscode-tailwindcss"
