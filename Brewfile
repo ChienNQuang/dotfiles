@@ -14,6 +14,8 @@ brew "stow"
 brew "k06a/tap/macpow"
 
 # GUI apps
+cask "1password"
+cask "1password-cli"
 cask "ghostty"
 cask "gitbutler"
 cask "obsidian"
