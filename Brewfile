@@ -16,6 +16,7 @@ brew "k06a/tap/macpow"
 # GUI apps
 cask "ghostty"
 cask "gitbutler"
+cask "obsidian"
 cask "orbstack"
 cask "raycast"
 cask "rectangle"
