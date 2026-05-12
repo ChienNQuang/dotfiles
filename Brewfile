@@ -24,10 +24,12 @@ cask "obsidian"
 cask "orbstack"
 cask "raycast"
 cask "rectangle"
+cask "slack"
 cask "steam"
 cask "visual-studio-code"
 cask "xpipe-io/tap/xpipe"
 cask "zed"
+cask "zen"
 
 # VS Code extensions
 vscode "antfu.vite"
