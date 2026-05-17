@@ -18,7 +18,6 @@ brew "k06a/tap/macpow"
 # GUI apps
 cask "1password"
 cask "1password-cli"
-cask "alacritty"
 cask "dotnet-sdk@8"
 cask "font-caskaydia-mono-nerd-font"
 cask "ghostty"
