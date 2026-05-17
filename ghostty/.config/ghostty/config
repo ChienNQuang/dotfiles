@@ -14,3 +14,4 @@ mouse-hide-while-typing = true
 
 # Shell
 shell-integration = zsh
+command = /opt/homebrew/bin/zellij
