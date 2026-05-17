@@ -1,16 +1,21 @@
 # Font
+font-family = CaskaydiaMono Nerd Font Mono
 font-size = 14
 
 # Appearance
 theme = Catppuccin Mocha
 background-opacity = 0.97
+background-blur-radius = 20
 window-padding-x = 12
 window-padding-y = 12
+macos-titlebar-style = transparent
 
 # Behavior
 copy-on-select = true
 confirm-close-surface = false
 mouse-hide-while-typing = true
+macos-option-as-alt = true
+window-save-state = always
 
 # Shell
 shell-integration = zsh
