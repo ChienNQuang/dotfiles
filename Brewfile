@@ -12,6 +12,7 @@ brew "mise"
 brew "ollama"
 brew "ripgrep"
 brew "stow"
+brew "zellij"
 brew "k06a/tap/macpow"
 
 # GUI apps

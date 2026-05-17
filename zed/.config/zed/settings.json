@@ -7,6 +7,40 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "existing_window",
+  "autosave": "on_focus_change",
+  "icon_theme": "Material Icon Theme",
+  "ssh_connections": [
+    {
+      "host": "VPS_2_xpipe",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/root/BBM/./"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "ubuntuzarp",
+      "username": "ezarp",
+      "port": 2222,
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/ezarp"
+          ]
+        },
+        {
+          "paths": [
+            "/home/ezarp/code/work/holistics/./"
+          ]
+        }
+      ]
+    }
+  ],
   "vim_mode": true,
   "agent_servers": {
     "claude-acp": {
@@ -16,7 +50,7 @@
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
     "dark": "Gruvbox Dark Hard",
   },
