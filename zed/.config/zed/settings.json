@@ -17,6 +17,11 @@
       "projects": [
         {
           "paths": [
+            "/home/ezarp/code/BBM.code-workspace"
+          ]
+        },
+        {
+          "paths": [
             "/root/BBM/./"
           ]
         }
@@ -24,18 +29,11 @@
     },
     {
       "host": "ubuntuzarp",
-      "username": "ezarp",
-      "port": 2222,
       "args": [],
       "projects": [
         {
           "paths": [
-            "/home/ezarp"
-          ]
-        },
-        {
-          "paths": [
-            "/home/ezarp/code/work/holistics/./"
+            "/home/ezarp/code/BBM"
           ]
         }
       ]
@@ -44,6 +42,14 @@
   "vim_mode": true,
   "agent_servers": {
     "claude-acp": {
+      "favorite_config_option_values": {
+        "mode": [
+          "bypassPermissions"
+        ]
+      },
+      "default_config_options": {
+        "mode": "bypassPermissions"
+      },
       "type": "registry"
     }
   },
