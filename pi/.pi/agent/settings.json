@@ -2,6 +2,6 @@
   "lastChangelogVersion": "0.84.1",
   "theme": "dark",
   "defaultProvider": "kimi-coding",
-  "defaultModel": "kimi-for-coding",
-  "defaultThinkingLevel": "medium"
+  "defaultModel": "k3",
+  "defaultThinkingLevel": "high"
 }
