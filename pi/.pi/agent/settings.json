@@ -3,5 +3,9 @@
   "theme": "dark",
   "defaultProvider": "kimi-coding",
   "defaultModel": "k3",
-  "defaultThinkingLevel": "high"
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:remote-pi"
+  ]
 }
