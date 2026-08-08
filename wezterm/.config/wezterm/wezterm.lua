@@ -5,6 +5,13 @@ local io = require 'io'
 local os = require 'os'
 local config = wezterm.config_builder()
 
+-- Launched from the Dock, WezTerm inherits Finder's bare PATH, so Homebrew
+-- binaries are invisible to any program spawned with explicit args (which
+-- skips the shell, and with it ~/.zshrc). Prepend the brew prefixes here.
+config.set_environment_variables = {
+  PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:' .. (os.getenv 'PATH' or ''),
+}
+
 -- tabline.wez: lualine-style tab/status bar. Fetched + cached on first launch
 -- (needs network once); updates via `wezterm.plugin.update_all()`.
 local tabline = wezterm.plugin.require 'https://github.com/michaelbrusegard/tabline.wez'
@@ -126,7 +133,9 @@ wezterm.on('edit-pane-in-editor', function(window, pane)
   window:perform_action(
     act.SplitPane {
       direction = 'Right',
-      command = { args = { os.getenv 'EDITOR' or 'nvim', name } },
+      -- $EDITOR is unset in the GUI environment, so the fallback has to be an
+      -- absolute path — a bare 'nvim' fails to resolve.
+      command = { args = { os.getenv 'EDITOR' or '/opt/homebrew/bin/nvim', name } },
     },
     pane
   )
@@ -146,9 +155,21 @@ end)
 tabline.setup {
   options = {
     icons_enabled = true,
-    -- Match the GruvboxDarkHard color_scheme above (darker #1b1b1b bg). The
-    -- blueish accent is tabline's design — it uses the scheme's ansi blue.
+    -- Match the GruvboxDarkHard color_scheme above (darker #1b1b1b bg).
     theme = 'GruvboxDarkHard',
+    -- tabline defaults its accent to the scheme's ansi blue (#458588).
+    -- Override it to Gruvbox's signature bright orange so the bar reads as
+    -- Gruvbox, not blue. Covers the mode block, active tab, and the end caps
+    -- on both sides (left mode / right domain share normal_mode colors).
+    theme_overrides = {
+      normal_mode = {
+        a = { bg = '#fe8019' }, -- mode/end-cap block background
+        b = { fg = '#fe8019' }, -- accent text on the surface segment
+      },
+      tab = {
+        active = { fg = '#fe8019' }, -- active tab label
+      },
+    },
     section_separators = {
       left = wezterm.nerdfonts.pl_left_hard_divider,
       right = wezterm.nerdfonts.pl_right_hard_divider,

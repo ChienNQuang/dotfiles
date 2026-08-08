@@ -7,7 +7,7 @@ Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 ```sh
 git clone git@github.com:<you>/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-stow git ghostty zed alacritty zellij
+stow git ghostty zed alacritty
 ```
 
 Each top-level directory is a "package". `stow <pkg>` symlinks the contents into `$HOME`.
@@ -18,7 +18,6 @@ Each top-level directory is a "package". `stow <pkg>` symlinks the contents into
 - `ghostty/` — `~/.config/ghostty/config`
 - `zed/` — `~/.config/zed/settings.json`
 - `alacritty/` — `~/.config/alacritty/*.toml`
-- `zellij/` — `~/.config/zellij/config.kdl`, `themes/`
 
 ## Add a new package
 

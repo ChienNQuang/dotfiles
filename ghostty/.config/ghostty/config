@@ -19,10 +19,3 @@ window-save-state = always
 
 # Shell
 shell-integration = zsh
-command = /opt/homebrew/bin/zellij
-
-# Keybinds
-# Route ⌘T to Zellij's "Alt+t" → NewTab binding (defined in ~/.config/zellij/
-# config.kdl, active in both normal and locked modes). Sends ESC + 't' which
-# Zellij interprets as Alt+t. Stops yabai reflowing on new windows.
-keybind = cmd+t=text:\x1bt
