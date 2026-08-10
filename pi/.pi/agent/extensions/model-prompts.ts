@@ -1,5 +1,7 @@
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 
+const ENABLE_MODEL_PROMPTS = false;
+
 // Adapted from Amp's official Claude Fable 5 mode:
 // https://ampcode.com/@amp/plugins/fable-mode.ts
 const FABLE_AGENT_PROMPT = `
@@ -167,6 +169,8 @@ function getModelPrompt(provider: string, modelId: string): string | undefined {
 }
 
 export default function modelPrompts(pi: ExtensionAPI) {
+  if (!ENABLE_MODEL_PROMPTS) return;
+
   pi.on("before_agent_start", (event, ctx) => {
     if (!ctx.model) return;
 
