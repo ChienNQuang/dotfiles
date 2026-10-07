@@ -5,19 +5,20 @@ Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 ## Setup
 
 ```sh
-git clone git@github.com:<you>/dotfiles.git ~/dotfiles
+git clone --recurse-submodules https://github.com/ChienNQuang/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-stow git ghostty zed alacritty
+stow git ghostty zed
+stow --no-folding agents
 ```
 
-Each top-level directory is a "package". `stow <pkg>` symlinks the contents into `$HOME`.
+Each top-level directory is a "package". `stow <pkg>` symlinks the contents into `$HOME`. The agent package uses `--no-folding` so credentials, sessions, caches, and other runtime state remain outside the repository.
 
 ## Packages
 
 - `git/` — `.gitconfig` (with delta), `.gitignore_global`
 - `ghostty/` — `~/.config/ghostty/config`
 - `zed/` — `~/.config/zed/settings.json`
-- `alacritty/` — `~/.config/alacritty/*.toml`
+- `agents/` — Agent configuration submodule with shared skills and Pi-specific settings
 
 ## Add a new package
 
