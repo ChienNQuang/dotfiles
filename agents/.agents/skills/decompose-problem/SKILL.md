@@ -1,6 +1,6 @@
 ---
 name: decompose-problem
-description: "Split a request into distinct problems and the decisions each one forces, then list them as a numbered map. Use whenever someone brings a mess, a complaint, a list of symptoms, a feature idea, or a request like sort this out / fix this / what should we do about X / should we build A or B / how do I approach X — anything that may tangle more than one problem. Trigger even when the request sounds like a straightforward fix, and even when the user sounds sure of the solution: the value is separating the problems before any of them gets solved. Do NOT trigger for a factual lookup, or for one specific error with an already-settled cause."
+description: "Split an ambiguous or bundled problem concerning a work or personal product into distinct product problems and the decisions each forces. Use when the user is creating, defining, or materially evolving a product and the request combines multiple user needs, failure modes, outcomes, or subsystems. Do not infer product intent merely from a request to change code or configuration; do not use for dotfiles, environment setup, general tooling, routine maintenance, or an isolated fix unless the user explicitly frames that work as product development."
 ---
 
 # Decompose problem

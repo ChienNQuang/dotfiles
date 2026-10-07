@@ -1,6 +1,6 @@
 ---
 name: consideration
-description: "Reason one thing that needs solving or deciding to a decision, and record it. Use when a product or technical choice has more than one reasonable answer, or when an open or deferred question needs recording."
+description: "Reason through and record one consequential decision about a work or personal product. Use when the user is creating, defining, or materially evolving a product and a product-behavior or product-implementation choice has multiple reasonable answers, or a related open question must be recorded. Do not infer product intent merely from a request to change code or configuration; do not use for dotfiles, environment setup, general tooling, routine maintenance, or an isolated fix unless the user explicitly frames that work as product development."
 ---
 
 # Consideration

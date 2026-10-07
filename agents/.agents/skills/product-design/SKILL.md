@@ -1,6 +1,6 @@
 ---
 name: product-design
-description: "Design the product layer — Business Rules, Requirements, Product Concepts, product considerations. Use when settling what a system must do, before any mechanism."
+description: "Design the product layer of a work or personal product: Business Rules, Requirements, Product Concepts, and product considerations. Use when the user is creating, defining, or materially evolving stakeholder-visible product behavior before choosing mechanisms. Do not infer product intent merely from a request to change code or configuration; do not use for dotfiles, environment setup, general tooling, routine maintenance, or an isolated fix unless the user explicitly frames that work as product development."
 ---
 
 # Product design

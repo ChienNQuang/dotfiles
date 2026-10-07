@@ -29,11 +29,11 @@ config.font = wezterm.font_with_fallback {
 config.font_size = 14.0
 
 -- ── Appearance (parity with Ghostty) ──────────────────────────────────
-config.window_background_opacity = 0.75
-config.macos_window_background_blur = 20
+-- Opaque background: transparency + blur force continuous compositing in
+-- WindowServer, which is a real battery cost.
+config.window_background_opacity = 1.0
 config.window_padding = { left = 12, right = 12, top = 12, bottom = 12 }
--- Frameless floating-glass look: the "it's a window" signal comes from
--- transparency + blur, not from chrome or a border.
+-- Frameless look: no title bar, just the content and a resize edge.
 config.window_decorations = 'RESIZE'
 -- Tabs: styled by the tabline.wez plugin (lualine-style statusline,
 -- GruvboxDark theme). apply_to_config() at the bottom enables the retro

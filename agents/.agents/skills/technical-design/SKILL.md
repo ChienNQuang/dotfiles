@@ -1,6 +1,6 @@
 ---
 name: technical-design
-description: "Design the technical layer from the high-level plan: surface technical forks as considerations, trace each to the Requirement it serves, reroute findings that break an assumption. Use when turning a settled plan into implementation."
+description: "Design the technical layer for a work or personal product from settled product requirements: surface consequential technical forks, trace each to the requirement it serves, and reroute broken assumptions. Use only when delivering a product change whose implementation still needs meaningful architectural decisions. Do not infer product intent merely from a request to change code or configuration; do not use for dotfiles, environment setup, general tooling, routine maintenance, or an isolated fix unless explicitly framed as product development."
 ---
 
 # Technical design

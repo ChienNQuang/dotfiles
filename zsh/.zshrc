@@ -16,13 +16,6 @@ eval "$(~/.local/bin/mise activate)"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# pnpm
-export PNPM_HOME="/Users/ezarp/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
 
 
 export DYLD_LIBRARY_PATH=~/Downloads/instantclient_23_26
@@ -105,6 +98,12 @@ export PATH="/Users/ezarp/.kimi-code/bin:$PATH"
 # ssl-cert-file in nix.conf does NOT work here: it's a restricted setting that
 # nix ignores from untrusted users. The env var is the only clean fix.
 [ -r /etc/ssl/cert.pem ] && export NIX_SSL_CERT_FILE=/etc/ssl/cert.pem
+#
+# Pi
+export PATH="/Users/ezarp/.local/share/mise/installs/node/24.15.0/bin:$PATH"
+
+# Local secrets / machine-specific overrides (not tracked in dotfiles)
+[[ -f ~/.zshrc-local ]] && source ~/.zshrc-local
 
 # Initialize zoxide at the first prompt, after ~/.zshrc has been read completely.
 # This keeps its directory-change hook intact even when installers append new setup below.
@@ -123,8 +122,11 @@ else
   __init_zoxide_after_zshrc
 fi
 
-# Pi
-export PATH="/Users/ezarp/.local/share/mise/installs/node/24.15.0/bin:$PATH"
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
 
-# Local secrets / machine-specific overrides (not tracked in dotfiles)
-[[ -f ~/.zshrc-local ]] && source ~/.zshrc-local
+# Added by cua-driver-rs installer — see https://github.com/trycua/cua
+export PATH="/Users/ezarp/.local/bin:$PATH"

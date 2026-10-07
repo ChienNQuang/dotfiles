@@ -1,0 +1,1 @@
+../../../../../.pi/agent/npm/node_modules/pi-subagents/prompts/council.md

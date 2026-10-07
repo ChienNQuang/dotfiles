@@ -1,6 +1,6 @@
 ---
 name: design-doc
-description: "Turn a request into a design doc: decompose, product layer first, high-level implementation plan, then technical design. Use when starting a non-trivial design or when the real problem is still unclear."
+description: "Turn a broad work or personal product problem into an end-to-end design doc: decompose the problems, define product behavior, derive a high-level implementation plan, then resolve technical design. Use when the user's stated product problem requires coordinated product and technical design. Do not infer product intent merely from a substantial or unclear coding request; do not use for dotfiles, environment setup, general tooling, routine maintenance, or isolated fixes unless explicitly framed as product development."
 ---
 
 # Design doc
