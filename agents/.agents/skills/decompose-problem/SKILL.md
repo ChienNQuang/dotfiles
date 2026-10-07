@@ -1,92 +1,53 @@
 ---
 name: decompose-problem
-description: "Split a request into separate problems and list them as a numbered map. Use when someone brings a mess, a complaint, a list of symptoms, a feature idea, or a request like sort this out / fix this / what should we do about X / should we build A or B / how do I approach X. Trigger even when the request sounds like a simple fix, and even when the user sounds sure of the answer — the value is separating the problems before any of them gets solved. Do NOT trigger for a factual lookup, or for one specific error with a known cause."
+description: "Split a request into distinct problems and the decisions each one forces, then list them as a numbered map. Use whenever someone brings a mess, a complaint, a list of symptoms, a feature idea, or a request like sort this out / fix this / what should we do about X / should we build A or B / how do I approach X — anything that may tangle more than one problem. Trigger even when the request sounds like a straightforward fix, and even when the user sounds sure of the solution: the value is separating the problems before any of them gets solved. Do NOT trigger for a factual lookup, or for one specific error with an already-settled cause."
 ---
 
 # Decompose problem
 
-One request often hides several problems inside what looks like a single ask. This skill is the
-check for that.
+A single request often hides several problems inside what looks like one ask. This skill
+is the check for that: run the split test, and if the request really does tangle more than
+one problem, name them before any one of them gets worked on.
 
-Run the test below. If the request really holds more than one problem, name them all before
-anyone starts solving one. If it is really one problem, say so in a line and carry on with the
-request as normal — do not force a map onto a simple ask.
+If the request really holds several distinct problems, surface them (below) then let the user choose where to start.
 
-## What counts as a separate problem
+Or else it's really one problem, or nothing worth splitting, say so and carry on with the request as normal.
 
-Two things are **separate problems** — split them — if they differ in any of these:
+## What counts as a problem
 
-| Test | Question |
-|---|---|
-| Stakeholder | Who feels the pain? |
-| Failure mode | What does "broken" look like? |
-| Success metric | How would you measure "solved"? |
-| Time horizon | Does one need fixing now and the other next quarter? |
-| Subsystem | Do they live in different parts of the system? |
+Two candidates are genuinely different problems — split them — when they differ in any of:
 
-They are the **same problem** if one decision fixes both, *and* they share a stakeholder and a
-metric.
+- **stakeholder** — who feels the pain
+- **failure mode** — what "broken" looks like
+- **success metric** — how you'd measure "solved"
+- **time horizon**
+- **subsystem**
 
-When you are not sure, split. Merging two problems is the more expensive mistake: you end up
-with one solution that half-solves both.
+They're the same problem — keep them together — when one decision resolves both *and* they
+share a stakeholder and a metric. When unsure, split; merging is the costlier mistake.
 
-## How to run it
+## How
 
-Start from what the user thinks they asked for, then show what is actually in there:
+Start from what the user thinks they asked for, then reveal the tangle:
 
-> Sounds like you want to fix the top-up flow. There are really four separate problems in here,
-> and one change won't solve all of them.
+> Sounds like you want to fix the top-up flow — but there are really four separate problems in here, and one change won't solve all of them.
 
-Then list them. Offer to take them one at a time. Do not choose the order for the user.
+Then lay out the map. Offer to take them one at a time; don't force an order.
 
-**While you are splitting, do not solve any of them.** That is the whole job of this step. Once
-they are all listed, the user picks where to start.
+While you're surfacing a split, hold off on solving any single one — that's the whole point of stopping to look. Once they're all on the table, the user picks where to go.
 
-**Name the problems, not the choices they force.** "Cached column or ledger sum?" is a choice,
-not a problem. Choices belong to `consideration`, one problem at a time, after that problem has
-use cases and criteria.
+Name the problems, not the choices they force. "Cached column or ledger sum?" is solution language — it belongs to `consideration`, one problem at a time, after that problem's use cases and criteria exist. Here, stop at the problems.
 
-- Wrong: "Should we cache the balance or sum the ledger?"
-- Right: "Reading a balance gets slower as an account gets older."
+Mark a problem the request only *implies*, not states, as **unconfirmed** until the user
+agrees it's real. Cut anything with no concrete situation where someone actually hits it —
+say so plainly rather than padding the map.
 
-## Two things to mark
+## Notation
 
-- **Unconfirmed.** If the request only *implies* a problem and does not state it, mark it
-  unconfirmed until the user agrees it is real.
-- **Cut it.** If you cannot name a real situation where someone hits it, say so plainly and drop
-  it. Do not pad the map to look thorough.
+A problem should be noted as Problen #1, #2,...
 
-## How to write the map
-
-Number them `#1`, `#2`, `#3`. Sub-problems get `#1.a`, `#1.b`.
-
-Give each one a priority (`P0`–`P6`, defined in `design-protocol`):
-
-- `P0` — this is what the task **is**. The problem is that the task is not done yet.
-- `P1` — highest priority.
-- `P2` — medium. Not needed now, but next phase.
-- `P3`–`P6` — low. May never be needed for this project.
-
-Example:
-
-```
-#1  P0  A metered debit can take the balance below zero, and nothing stops it.
-#2  P1  Reading a balance gets slower as an account collects entries.
-#3  P2  Non-USD top-ups have no agreed conversion time.  (unconfirmed)
-#4  P4  Admins have no view of usage per day.
-```
-
-Keep each line to one sentence. Detail belongs in the consideration for that problem, not here.
-
-## After the map
-
-The user picks one. That problem then goes to `consideration`, which decides its size and works
-it through.
-
-Do not run considerations for all of them at once.
-
-## Related
-
-- `design-protocol` — priorities, notation, and how the session runs.
-- `consideration` — takes one problem from this map and works it to a decision.
-- `design-doc` — the driver that runs this first, then the product layer.
+with a priority:
+  - P0 - the definition of what the task is itself, meaning that the problem is that the task hasn't been fully implemented
+	- P1 - the highest priority
+	- P2 - medium priority, might not need immediately, but will do next phase
+	- P3 - P6 - low priority, might not need to do this project
