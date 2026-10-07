@@ -53,9 +53,6 @@ export DOTNET_ROOT=/usr/local/share/dotnet
 # Aliases
 alias yolo='claude --dangerously-skip-permissions'
 
-# Added by GitButler installer
-eval "$(but completions zsh)"
-
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
