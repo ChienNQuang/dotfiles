@@ -106,9 +106,22 @@ export PATH="/Users/ezarp/.kimi-code/bin:$PATH"
 # nix ignores from untrusted users. The env var is the only clean fix.
 [ -r /etc/ssl/cert.pem ] && export NIX_SSL_CERT_FILE=/etc/ssl/cert.pem
 
-# zoxide: aliases `cd` to frecency-based directory jumper. `cdi` for interactive picker.
-# must stay at the end of this file
-eval "$(zoxide init zsh --cmd cd)"
+# Initialize zoxide at the first prompt, after ~/.zshrc has been read completely.
+# This keeps its directory-change hook intact even when installers append new setup below.
+__init_zoxide_after_zshrc() {
+  autoload -Uz add-zsh-hook
+  add-zsh-hook -d precmd __init_zoxide_after_zshrc
+  eval "$(zoxide init zsh --cmd cd)"
+  unfunction __init_zoxide_after_zshrc
+}
+
+autoload -Uz add-zsh-hook
+if [[ -t 0 && -t 1 ]]; then
+  add-zsh-hook precmd __init_zoxide_after_zshrc
+else
+  # Interactive shells without a terminal do not render a prompt.
+  __init_zoxide_after_zshrc
+fi
 
 # Pi
 export PATH="/Users/ezarp/.local/share/mise/installs/node/24.15.0/bin:$PATH"
